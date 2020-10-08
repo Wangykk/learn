@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // js代码之所以在浏览器中可以运行 是因为浏览器有js解析器
+      // 最快的js解析引擎是谷歌浏览器中的v8解析器
+      // console.log(123);
+
+      var flag = true;
+      // if (flag) {
+      //   return console.log(123);
+      //   // return; // 阻止代码的后续执行
+      // }
+
+      if (flag) return console.log(123);
+      console.log("代码执行了...");
+    </script>
+  </body>
+</html>

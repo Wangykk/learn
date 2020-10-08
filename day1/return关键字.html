@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function fn() {
+        console.log(123);
+        console.log(456);
+        return;
+        console.log(789);
+      }
+
+      // 1. 用于函数当中 可以返回函数中的数据 此数据就是函数中的返回值 返回数据之后就会跳出函数 return后面的代码不再执行
+      // 2. 用于函数当中 如果return后面没有数据 执行了return关键字后会跳出函数 return后面的代码仍然不执行 此时则表示阻止代码向下执行
+      // 3. 不管函数中有没有数据要返回 只要是执行了return关键字 就会跳出函数 return后面的代码永不执行
+    </script>
+  </body>
+</html>
