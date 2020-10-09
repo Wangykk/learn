@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        1. node.js是什么
+            1. 不是一门新语言 使用的语言是javascript
+            2. node.js是基于chrome浏览器v8引擎的一个js环境运行时
+            3. 还有一些内置核心模块fs http path
+            4. 还有一些第三方模块 mime
+
+        2. node与浏览器的区别
+              相同点: 都可以用来解析执行js代码
+              不同点: 
+                浏览器有DOM和BOM 但是不能操作文件(因为没有内置的核心模块)
+                node:没有DOM和BOM 可以操作文件 可以开启服务器
+
+        3. 内置的模块 fs
+            操作文件夹的
+            fs.readFile(filePath,encoding,callback)
+            fs.readFile('./a.txt','utf-8',(err,data)=>{
+              err:表示错误对象 如果读取失败则err是一个错误对象 里面有错误提示 否则是null
+              data:读取成功则是读取到的文件数据 否则是undefined
+              if(err) return console.log(err.message)
+              console.log(data)
+            })
+        fs.writeFile(filePath,str,callback) 会覆盖原文件中的内容
+        fs.appendFile(filePath,str,callback) 是在原文件的基础上追加内容
+
+        4. 内置的核心模块http
+            作用:可以开启服务器
+            const http = require('http');
+            const app = http.createServer();
+            app.listen(3000,()=>{ do something })
+            app.on('request',(req,res)=>{})
+
+        5. req 与请求相关的对象
+            req.method 获取响应的方式 get/post
+            req.url 获取的是端口号后面的所有的内容
+
+        6. res 与响应相关的对象
+            res.end() 向客户端响应数据后结束响应 响应给服务器的数据是字符串或二进制
+            res.writeHead(statusCode,{})
+     -->
+  </body>
+</html>
