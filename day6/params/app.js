@@ -68,8 +68,19 @@ let obj = {
 };
 
 // let sql = `update students set name = '',age = 20 `;
-let sql = `update students set name = ? age = ? where id = ?`;
-conn.query(sql, [obj.name, obj.age, obj.id], (err, result) => {
+// let sql = `update students set name = ? age = ? where id = ?`;
+// conn.query(sql, [obj.name, obj.age, obj.id], (err, result) => {
+//   if (err) return console.log(err.message);
+//   if (result.affectedRows == 1) {
+//     console.log("更新成功");
+//   }
+// });
+
+let id = obj.id; // 先把id存储起来
+delete obj.id; // 删除对象中的id
+// 参数化更简单的更新
+let sql = `update students set ? where id = ?`;
+conn.query(sql, [obj, id], (err, result) => {
   if (err) return console.log(err.message);
   if (result.affectedRows == 1) {
     console.log("更新成功");
