@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        步骤:
+        1. 在页面的body中放置一个需要通过 Vue 渲染的视图元素: <div id= 'app'><div>
+        2. 在页面中引入 vue.js    
+        3. 创建 Vue 实例: new Vue()
+        4. 设置 Vue 实例的参数选项: new Vue({ el:...,data:...})
+        5. 在<div id='app'></div> 内使用 {{}} 语法插入 data 中的数据
+     -->
+
+    <div id="app"></div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+      new Vue({
+        el: "#app",
+
+        data: {
+          message: "Hello World",
+        },
+      });
+    </script>
+  </body>
+</html>

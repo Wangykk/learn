@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 在视图中使用响应式数据 -->
+      {{$data.message}} -- {{message}}
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+
+        data: {
+          message: "Hello World",
+          num: 1,
+        },
+      });
+
+      // 在js中访问响应式数据
+      console.log(vm.message);
+      console.log(vm.$data.message);
+    </script>
+  </body>
+</html>

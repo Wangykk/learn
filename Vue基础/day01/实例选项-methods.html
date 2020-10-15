@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+      <button v-on:click="test1()">测试按钮</button>
+      {{test4()}}
+    </div>
+    <script src="./js/vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+
+        data: {
+          message: "Hello World",
+        },
+
+        methods: {
+          test1() {
+            console.log("test1", this.message);
+            this.test2();
+          },
+          test2() {
+            console.log("test2", this.message);
+          },
+          test3() {
+            console.log("test3", this.message);
+          },
+          test4() {
+            return "大家好";
+          },
+        },
+      });
+      vm.test1();
+    </script>
+  </body>
+</html>

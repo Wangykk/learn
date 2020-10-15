@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" class="box">{{message}}</div>
+    <div id="app2" class="box">{{message}}</div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+      new Vue({
+        // 赋值说明:
+        // - 通常是id选择器
+        // - 或是一个DOM元素
+        // - 可以用其他选择器 选择器匹配到多个元素时只取第一个
+        // - 不能是body,html 元素
+
+        el: "#app",
+        // el: document.getElementById(app),
+        // el: ".box",
+
+        data: {
+          message: "Hello World",
+        },
+      });
+
+      const vm = new Vue({
+        el: "#app2",
+
+        data: {
+          message: "你好,世界",
+        },
+      });
+    </script>
+  </body>
+</html>
