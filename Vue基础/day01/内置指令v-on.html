@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{num}}</h1>
+      <button v-on:click="clickHandler">按钮1</button>
+      <button @click="clickHandler">按钮2-简写</button>
+      <button @click.once="clickHandler">按钮3-只触发一次</button>
+      <button @click="clickEventHandler($event)">按钮4-事件对象</button>
+      <button @click="clickEventHandler2">按钮5-事件对象-不显示传递</button>
+      <button @click="increaseHandler">按钮6-递增数字</button>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+
+        data: {
+          isShow: true,
+          num: 1,
+        },
+        methods: {
+          clickHandler() {
+            console.log(">>>>>> clicked !!!");
+          },
+          clickEventHandler(e) {
+            console.log("+++", e);
+          },
+          clickEventHandler2(e) {
+            console.log("#####", e);
+          },
+          increaseHandler() {
+            this.num++;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

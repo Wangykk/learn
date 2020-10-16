@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <!-- 数组 -->
+        <li v-for="(item,index) in items" :key="item.id">
+          {{index}} -- {{item.name}} -- {{item.price}}
+        </li>
+      </ul>
+      <ul>
+        <li v-for="(item,key,index) in obj">
+          {{index}} -- {{key}} -- {{item}}
+        </li>
+      </ul>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+
+        data: {
+          items: [
+            { id: 1, name: "苹果", price: 19 },
+            { id: 2, name: "橘子", price: 20 },
+            { id: 3, name: "香蕉", price: 40 },
+          ],
+          obj: {
+            name: "红楼梦",
+            author: "曹雪芹",
+            price: 40,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
