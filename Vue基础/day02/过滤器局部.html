@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        - 注册方式: 在Vue实例对象的选项中配置 'filters:{}'
+        - 定义格式: 过滤名字: '(要过滤的数据) => {return 过滤后的结果数据}'
+        - 使用方式: '{{被过滤的数据 | 过滤器1 | 过滤器2(参数1,参数2)}}'
+     -->
+
+    <div id="app">{{message | uppercase}}</div>
+
+    <script src="./vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+
+        data: {
+          message: "hello,word",
+        },
+
+        // 存放过滤器
+        filters: {
+          uppercase: (val) => {
+            // 过滤器名字：`(要过滤的数据) => { return 过滤后的结果数据 }`
+            return val.toUpperCase();
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

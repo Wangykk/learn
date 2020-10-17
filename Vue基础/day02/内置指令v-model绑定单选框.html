@@ -7,23 +7,18 @@
   </head>
   <body>
     <div id="app">
-      <!-- 单一复选框 -->
-      <input type="checkbox" v-model="checked" />开启
-      <hr />
-
-      <!-- 一组复选框 -->
-
-      <input type="checkbox" value="y" v-model="items" />苹果
-      <input type="checkbox" value="h" v-model="items" />香蕉
-      <input type="checkbox" value="b" v-model="items" />猕猴桃
+      <input type="radio" value="A" v-model="selectedValue" />张三
+      <input type="radio" value="B" v-model="selectedValue" />李四
+      <input type="radio" value="C" v-model="selectedValue" />王二麻子
     </div>
+
     <script src="./vue.js"></script>
+
     <script>
       const vm = new Vue({
         el: "#app",
         data: {
-          checked: true,
-          items: [],
+          selectedValue: "",
         },
       });
     </script>

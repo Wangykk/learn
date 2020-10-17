@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <select v-model="selectedCity">
+        <option value="">-- 请选择 --</option>
+        <option v-for="(item,index) in cities" :value="item.value" :key="index">
+          {{item.name}}
+        </option>
+      </select>
+    </div>
+
+    <script src="./vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+
+        data: {
+          cities: [
+            { name: "上海", value: 1 },
+            { name: "北京", value: 2 },
+            { name: "成都", value: 3 },
+            { name: "杭州", value: 4 },
+            { name: "深圳", value: 5 },
+          ],
+          selectedCity: "",
+        },
+      });
+    </script>
+  </body>
+</html>

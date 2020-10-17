@@ -7,23 +7,22 @@
   </head>
   <body>
     <div id="app">
-      <!-- 单一复选框 -->
-      <input type="checkbox" v-model="checked" />开启
-      <hr />
-
-      <!-- 一组复选框 -->
-
-      <input type="checkbox" value="y" v-model="items" />苹果
-      <input type="checkbox" value="h" v-model="items" />香蕉
-      <input type="checkbox" value="b" v-model="items" />猕猴桃
+      <input type="text" />
+      <button @click="handler"></button>
     </div>
+
     <script src="./vue.js"></script>
     <script>
       const vm = new Vue({
         el: "#app",
         data: {
-          checked: true,
-          items: [],
+          content: "",
+        },
+        methods: {
+          handler() {
+            console.log(this.$refs);
+            const dom = this.$refs.myele;
+          },
         },
       });
     </script>
