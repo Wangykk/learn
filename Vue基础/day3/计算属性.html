@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{num1+num2}}
+      <hr />
+      {{sum()}} - {{sum()}} - {{sum()}}
+      <hr />
+      {{mySum}} - {{mySum}} - {{mySum}}
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+
+        data: {
+          num1: 1,
+          num2: 2,
+        },
+
+        // 创建计算属性
+        computed: {
+          mySum() {
+            console.log(">>>>> mySum");
+            // 计算属性必须返回值
+            return this.num1 + this.num2;
+          },
+        },
+
+        methods: {
+          sum() {
+            console.log(">>>> sum");
+            return this.num1 + this.num2;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

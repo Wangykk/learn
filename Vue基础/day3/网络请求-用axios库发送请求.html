@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 引入axios -->
+    <script src="./axios.min.js"></script>
+
+    <script>
+      // const promise = axios.get('http://localhost:3000/brands')
+
+      // promise.then((res) => {
+      //     console.log(res)
+      // }).catch((err) => {
+      //     console.log('ERROR', err)
+      // })
+
+      const promisePost = axios.post("http://localhost:3000/brands", {
+        name: "索尼",
+        date: "1980-01-01 09:00:00",
+      });
+
+      promisePost
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>
