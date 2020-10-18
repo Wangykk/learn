@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        - 注册方式: 在当前Vue实例对象的选项中设置自定义指令 'directives{}'
+        - 定义格式: directive:{'指令的核心名称':{inserted:(使用指令时的DOM对象)=>{具体的DOM操作}}}
+        - 使用方式: 在标签元素上使用
+     -->
+    <div id="app">
+      <div class="box" v-colored></div>
+    </div>
+    <script src="./vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {},
+        directives: {
+          colored: {
+            inserted: (el) => {
+              el.style.border = "1px solid red";
+              el.style.backgroundColor = "pink";
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

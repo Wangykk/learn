@@ -7,24 +7,26 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" />
-      <button @click="handler"></button>
-    </div>
+      <!-- <input type="text" ref="myele" /> -->
+      <div ref="myele"></div>
+      <button @click="handler">按钮</button>
 
-    <script src="./vue.js"></script>
-    <script>
-      const vm = new Vue({
-        el: "#app",
-        data: {
-          content: "",
-        },
-        methods: {
-          handler() {
-            console.log(this.$refs);
-            const dom = this.$refs.myele;
+      <script src="./vue.js"></script>
+      <script>
+        const vm = new Vue({
+          el: "#app",
+          data: {
+            content: "",
           },
-        },
-      });
-    </script>
+          methods: {
+            handler() {
+              const dom = this.$refs.myele;
+              dom.style.border = "2px solid red";
+              dom.value = "请输入";
+            },
+          },
+        });
+      </script>
+    </div>
   </body>
 </html>

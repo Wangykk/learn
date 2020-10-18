@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        - 注册方式: 在创建Vue实例之前 使用Vue.directive() 函数定义全局自定义指令
+        - 定义格式: Vue.directive('指令的核心名称',{inserted:(使用指令的DOM对象)=>{具体的DOM操作}})
+        - 使用方式: 在视图标签上通过 'v-自定义指令名'的格式使用
+     -->
+    <div id="app">
+      <!-- <div class="box" v-colored></div> -->
+      <div v-html2.wrapper="htmlStr"></div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      Vue.directive("html2", {
+        inserted: (el, binding) => {
+          if (binding.modifiers.wrapper) {
+            el.innerHTML = `<div style='border:1px solid red'>${binding.value}</div>`;
+          } else {
+            el.innerHTML = binding.value;
+          }
+        },
+      });
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          htmlStr: "<span style='color:blue'>我是HTML</span>",
+        },
+        directives: {
+          colored: {
+            inserted: (el) => {
+              el.style.border = "1px solid red";
+              el.style.backgroundColor = "pink";
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
