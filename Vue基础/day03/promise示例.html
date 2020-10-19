@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function buyBeef() {
+        const promise = new Promise((resolve, reject) => {
+          // 这里的两个参数是两个函数 resolve是成功 reject是失败
+          // 这里写具体的做这件事的过程
+          const result = "100斤牛肉";
+          resolve(result);
+          // reject('拉肚子了')
+        });
+        return promise;
+      }
+      // 使用Promise标准的then和catch方法处理完成和失败的情况
+      // buyBeef()
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+
+      // 使用ES7语法 async/await 来处理完成和失败的情况
+      async function task1() {
+        try {
+          const res = await buyBeef();
+          console.log(res);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      task1();
+    </script>
+  </body>
+</html>
