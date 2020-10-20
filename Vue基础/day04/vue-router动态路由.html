@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <!-- 4.就是a标签 -->
+        <router-link to="/home">主页</router-link>
+        <router-link to="/products">产品</router-link>
+
+        <!-- 跳转到一个动态路由路径 参数是123 -->
+        <router-link to="/users/123/products/555">用户123详情</router-link>
+      </div>
+      <router-view></router-view>
+    </div>
+    <!-- 引入vue-router.js -->
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.min.js"></script>
+
+    <script>
+      // 6. 创建主页的视图组件
+      const HomePage = {
+        template: `
+            <div>主页</div>
+            `,
+      };
+
+      // 7. 创建产品页面的视图组件
+      const ProductsPage = {
+        template: `
+        <div>产品页</div>
+        `,
+      };
+
+      const UserDetail = {
+        template: `
+          <div>
+            用户详情页:{{userId}}
+          </div>
+          `,
+        data() {
+          return {
+            userId: "",
+          };
+        },
+
+        created() {
+          // 获取动态路由的参数信息
+          console.log(this.$route);
+          const userId = this.$route.params.userId;
+          const pid = this.$route.params.pid;
+          this.userId = userId;
+        },
+      };
+
+      // 2. 创建vueRouter实例
+      const router = new VueRouter({
+        // 8. 配置路由规则: 其实就是为路径和页面进行匹配
+        routes: [
+          { name: "home", path: "/home", component: HomePage },
+          {
+            name: "products",
+            path: "/products",
+            component: ProductsPage,
+          },
+          // 定义动态路由 参数部分使用冒号+一个名字
+          {
+            name: "userdetail",
+            path: "/users/:userId/products/:pid",
+            component: UserDetail,
+          },
+        ],
+      });
+      const vm = new Vue({
+        el: "#app",
+        data: {},
+        // 3. 关联VueRouter和Vue实例
+        router,
+      });
+    </script>
+  </body>
+</html>

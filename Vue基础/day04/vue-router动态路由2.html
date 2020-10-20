@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <router-link to="/home">主页</router-link>
+        <router-link to="/products">产品</router-link>
+        <router-link to="/users/123/products/456">用户详情页</router-link>
+      </div>
+      <router-view></router-view>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.min.js"></script>
+
+    <script>
+      const HomePage = {
+        template: `
+            <div>主页</div>
+            `,
+      };
+
+      const ProductsPage = {
+        template: `
+          <div>产品</div>
+          `,
+      };
+
+      const UserAbout = {
+        template: `
+          <div>
+            用户详情:{{userId}}
+          </div>
+          `,
+        data() {
+          return {
+            userId: "",
+          };
+        },
+        created() {
+          const userId = this.$route.params.userId;
+          const pid = this.$route.params.pid;
+          this.userId = userId;
+        },
+      };
+
+      const router = new VueRouter({
+        routes: [
+          { name: "home", path: "/home", component: HomePage },
+          { name: "products", path: "/products", component: ProductsPage },
+          {
+            name: "userAbout",
+            path: "/users/:userId/products/:pid",
+            component: UserAbout,
+          },
+        ],
+      });
+      const vm = new Vue({
+        el: "#app",
+        data: {},
+        router,
+      });
+    </script>
+  </body>
+</html>
