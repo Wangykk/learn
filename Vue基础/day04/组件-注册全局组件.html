@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <login-form></login-form>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+      // 使用Vue.component('组件名',{组件选择})
+      Vue.component("login-form", {
+        // 组件的视图模板
+        template: `
+        <div>
+            <form>
+                <label>账户:</label>
+                <input type="text" v-model='username'/>
+                <label>密码:</label>
+                <input type="password" v-model='password'/>
+                <button @click.prevent='login'>登录</button>
+            </form>
+        </div>
+        `,
+
+        // 是一个方法 它返回一个存放响应式数据的对象
+        data() {
+          return {
+            username: "",
+            password: "",
+          };
+        },
+        methods: {
+          // 登录按钮事件处理函数
+          login() {
+            console.log(">>>>Login", this.username, this.password);
+          },
+        },
+      });
+      const vm = new Vue({
+        el: "#app",
+        data: {},
+      });
+    </script>
+  </body>
+</html>

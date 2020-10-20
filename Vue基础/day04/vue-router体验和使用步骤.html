@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <!-- 4.就是a标签 -->
+        <router-link to="/home">主页</router-link>
+        <router-link to="/products">产品</router-link>
+      </div>
+
+      <!-- 5.视图容器 -->
+      <router-view></router-view>
+    </div>
+    <script src="./js/vue.js"></script>
+    <!-- 1.引入vue-router.js -->
+    <script src="./js/vue-router.min.js"></script>
+
+    <script>
+      // 6. 创建主页的视图组件
+      const Homepage = {
+        template: `
+            <div>主页</div>
+            `,
+      };
+      // 7. 创建产品页面的视图组件
+      const ProductsPage = {
+        template: `
+          <div>产品页</div>`,
+      };
+
+      // 2. 创建VueRouter实例
+      const router = new VueRouter({
+        // 8. 配置路由的规则: 其实就是为路径和页面组件进行匹配
+        routes: [
+          { name: "home", path: "/home", component: HomePage },
+          { name: "products", path: "/products", component: ProductsPage },
+        ],
+      });
+      const vm = new Vue({
+        el: "#app",
+        data: {},
+        // 3. 关联VueRouter和Vue实例
+        router,
+      });
+    </script>
+  </body>
+</html>

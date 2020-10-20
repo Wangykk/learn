@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <counter></counter>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+      // 创建计数显示器组件
+      const CounterDisplayer = {
+        template: `
+          <div>
+            当前计数:{{num}}
+          </div>  
+          `,
+        // 3. 为CounterDisplayer组件打开一个缺口 让外部可以传输数据进来
+        props: {
+          // 定义组件的属性 num是属性名
+          num: {
+            type: Number, // 带这个属性的数据类型
+            value: 0, // value是默认值
+          },
+        },
+        data() {
+          return {
+            count: 0,
+          };
+        },
+      };
+
+      // 创建计数统计组件
+      const Counter = {
+        // 局部注册 CounterDisplayer 组件
+        components: {
+          CounterDisplayer,
+        },
+
+        // 2. 点击按钮 将最新的值更新到Counter组件的count响应式数据上
+        template: `
+        <div>
+            <button @click='add'>点击我!</button>
+            <hr>
+            <counter-displayer :num='count'></counter-displayer>
+        </div>
+        `,
+
+        data() {
+          // 1. Counter组件内存储的数字
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          // 按钮的点击事件处理函数
+          add() {
+            this.count++;
+          },
+        },
+      };
+      const vm = new Vue({
+        el: "#app",
+        data: {},
+        // 局部注册 Counter 组件
+        components: {
+          Counter,
+        },
+      });
+    </script>
+  </body>
+</html>

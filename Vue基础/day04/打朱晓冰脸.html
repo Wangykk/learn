@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="checkbox" v-model="message" />同意协议
+      <br />
+      你的选择是:{{message}}
+      <br />
+      <button :disabled="!message">下一步</button>
+    </div>
+    <script src="./js/vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          message: true,
+        },
+      });
+    </script>
+  </body>
+</html>

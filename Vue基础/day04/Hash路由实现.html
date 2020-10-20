@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <a href="#/home">主页</a>
+      <a href="#/products">产品</a>
+      <a href="#/abouts">关于我们</a>
+      <div id="app"></div>
+    </div>
+
+    <script>
+      // 使用window.onhashchange
+      window.onhashchange = function () {
+        const hash = window.location.hash;
+        const app = document.getElementById("app");
+        if (hash === "#/home") {
+          app.innerHTML = "当前是主页HOME";
+        } else if (hash === "#/products") {
+          app.innerHTML = "当前页面是products";
+        } else if (hash === "#/abouts") {
+          app.innerHTML = "当前页面是关于我们";
+        }
+      };
+    </script>
+  </body>
+</html>
